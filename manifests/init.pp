@@ -43,9 +43,9 @@
 # Copyright 2016 Your name here, unless otherwise noted.
 #
 class servicenowreporter (
-  String $servicenow_username = undef,
-  String $servicenow_password = undef,
-  String $servicenow_instance = undef,
+  String $servicenow_username = Sensitive(lookup('servicenowreporter::servicenow_username')),
+  String $servicenow_password = Sensitive(lookup('servicenowreporter::servicenow_password')),
+  String $servicenow_instance = Sensitive(lookup('servicenowreporter::servicenow_instance')),
   String $servicenow_webservice = '/api/now/import/u_service_puppet_changes',
   String $puppet_config_dir = '/etc/puppetlabs/puppet'
   ) {
